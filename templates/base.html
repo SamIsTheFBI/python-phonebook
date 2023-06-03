@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Home {% endblock %}- PhoneBook</title>
+    <style>
+        .contact {
+					display: flex;
+					justify-content: space-between;
+          padding: 0rem 1.25rem;
+          margin: 1.2rem 2.5rem;
+          background-color: #f3f3f3
+        }
+
+				nav {
+					display: flex;
+					gap: 1.5rem;
+					justify-content: center;
+				}
+
+        nav a {
+          color: #d64161;
+          font-size: 2em;
+          text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+      <a href="{{ url_for('index') }}">PhoneBook</a>
+			<a href="{{ url_for('add_contact') }}">Add contacts</a>
+    </nav>
+    <hr>
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+</body>
+</html>
