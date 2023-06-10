@@ -2,9 +2,16 @@
 
 {% block content %}
     {% for contact in contacts %}
+			<a href="/{{ contact['number'] }}">
         <div class='contact'>
             <h2>{{ contact['name'] }}</h2>
-            <h2>{{ contact['number'] }}</h2>
+					<div class='right-side'>
+						<form method='POST'>
+							<input type='text' name='number' value="{{ contact['number'] }}" readonly></h2>
+							<button type="submit" class="close-button">X</button>
+						</form>
+					</div>
         </div>
+			</a>
     {% endfor %}
 {% endblock %}

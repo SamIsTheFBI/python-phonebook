@@ -16,8 +16,16 @@ class Contact(db.Model):
 with app.app_context():
     db.create_all()
 
-@app.route('/')
+@app.route('/', methods=('GET', 'POST'))
 def index():
+    if request.method == 'POST':
+        contactToDelete = request.form['number']
+        if contactToDelete:
+            contact = Contact.query.get(contactToDelete)
+            print(contact)
+            db.session.delete(contact)
+            db.session.commit()
+
     contacts = db.session.execute(db.select(Contact).order_by(Contact.name)).scalars()
     return render_template('index.html', contacts=contacts)
 
@@ -44,7 +52,7 @@ def add_contact():
             return redirect(url_for('index'))
     return render_template('create.html')
 
-@app.route('/<int:id>')
+@app.route('/<int:number>')
 def contact_details(number):
     contact = db.get_or_404(Contact, number)
     return render_template('contact_details.html', contact=contact)
