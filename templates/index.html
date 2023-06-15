@@ -1,14 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
+	<section class="contacts-list-header">
+	<h2>Your contacts ({{ count }})</h2>
+	<h2><a href="{{ url_for('add_contact') }}"><div class="square">+</div>Add contacts</a></h2>
+	</section>
     {% for contact in contacts %}
 			<a href="/{{ contact['number'] }}">
         <div class='contact'>
-            <h2>{{ contact['name'] }}</h2>
+					<div class="left-side">
+						<span>{{ contact['name'] }}</span>
+					</div>
 					<div class='right-side'>
 						<form method='POST'>
 							<input type='text' name='number' value="{{ contact['number'] }}" readonly></h2>
-							<button type="submit" class="close-button">X</button>
+							<button type="submit" class="close-button"></button>
 						</form>
 					</div>
         </div>

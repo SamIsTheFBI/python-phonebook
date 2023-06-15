@@ -2,6 +2,6 @@
 
 {% block content %}
 	<h1>{% block title %} Contact Details {% endblock %}</h1>
-		<h2>Name: </h2>
-		<h3>Phone number: </h3>
+		<h2>Name: {{ contact['name'] }}</h2>
+		<h3>Phone number: {{ contact['number'] }}</h3>
 {% endblock %}

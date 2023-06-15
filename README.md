@@ -13,7 +13,7 @@ Visit http://localhost:5000/ on your browser.
 
 ## To do
 
-- [ ] Add details page
+- [X] Add details page
 - [ ] Add groups (Colleagues, Family, Friends, etc)
 - [X] Add delete button next to contact list
 - [ ] Add styles (dark mode, improve UI)

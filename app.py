@@ -27,7 +27,8 @@ def index():
             db.session.commit()
 
     contacts = db.session.execute(db.select(Contact).order_by(Contact.name)).scalars()
-    return render_template('index.html', contacts=contacts)
+    count = Contact.query.count()
+    return render_template('index.html', contacts=contacts, count=count)
 
 @app.route('/add', methods=('GET', 'POST'))
 def add_contact():
